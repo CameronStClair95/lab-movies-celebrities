@@ -25,8 +25,4 @@ router.get('/celebrities', (req, res) => {
 
 
 
-
-
-
-
 module.exports = router;
