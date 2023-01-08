@@ -9,15 +9,24 @@ router.get("/movies/create", (req, res) => {
 router.post("/movies/create", (req, res) => {
   Movie.create(req.body)
     .then(() => res.redirect("/movies"))
-    .catch((error) => res.render("movies/new-movie"));
+    .catch((error) => res.redirect("movies/new-movie"));
 });
 
 router.get("/movies", (req, res) => {
   Movie.find()
     .populate("cast")
     .then((result) => {
-        console.log(result[0].cast)
-        res.render("movies/movies", { result })});
+        res.render("movies/movies", { result })})
+        .catch((error) => res.redirect("movies/new-movie"));
+});
+
+router.get('/movies/:id', (req, res) => {
+    Movie.findById(req.params.id)
+    .populate("cast")
+    .then(result => {
+    res.render('movies/movie-details', result)
+    })
+    .catch((error) => res.redirect("movies")); 
 });
 
 module.exports = router;

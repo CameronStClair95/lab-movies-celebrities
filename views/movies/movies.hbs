@@ -1,25 +1,23 @@
 <h1>Movies</h1>
 
 <a href="/movies/create">Create new movie</a>
-
-{{#each result}}
+<br>
 
 <div>
-    <h2>{{title}}</h2>
-    <h2>{{genre}}</h2>
-    <h2>{{plot}}</h2>
+    {{#each result}}
     <div>
-        <ul>
-            {{#each cast}}
-
-            <li>{{this.name}}</li>
-
-            {{/each}}
-
-
-        </ul>
-
+        <h2>{{title}}</h2>
+        <br>
+        <a href="/movies/{{_id}}">Link to Movie page</a>
+        <h2>{{genre}}</h2>
+        <h2>{{plot}}</h2>
+        <div>
+            <ul>
+                {{#each cast}}
+                <li>{{this.name}}</li>
+                {{/each}}
+            </ul>
+        </div>
     </div>
+    {{/each}}
 </div>
-
-{{/each}}
