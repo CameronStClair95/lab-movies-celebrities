@@ -16,24 +16,35 @@ router.get("/movies", (req, res) => {
   Movie.find()
     .populate("cast")
     .then((result) => {
-        res.render("movies/movies", { result })})
-        .catch((error) => res.redirect("/movies/new-movie"));
-});
-
-router.get('/movies/:id', (req, res) => {
-    Movie.findById(req.params.id)
-    .populate("cast")
-    .then(result => {
-    res.render('movies/movie-details', result)
+      res.render("movies/movies", { result });
     })
-    .catch((error) => res.redirect("/movies")); 
+    .catch((error) => res.redirect("/movies/new-movie"));
 });
 
-router.post('/movies/:id/delete', (req, res) => {
-    Movie.findByIdAndDelete(req.params.id)
-    .then(() =>
-    res.redirect('/movies'))
-    .catch((error) => res.redirect("/movies")); 
+router.get("/movies/:id", (req, res) => {
+  Movie.findById(req.params.id)
+    .populate("cast")
+    .then((result) => {
+      res.render("movies/movie-details", result);
+    })
+    .catch((error) => res.redirect("/movies"));
 });
 
+router.post("/movies/:id/delete", (req, res) => {
+  Movie.findByIdAndDelete(req.params.id)
+    .then(() => res.redirect("/movies"))
+    .catch((error) => res.redirect("/movies"));
+});
+
+router.get("/movies/:id/edit", (req, res) => {
+  Movie.findById(req.params.id)
+    .populate("cast")
+    .then((movie) => res.render("movies/edit-movie", movie));
+});
+
+router.post("/movies/:id/edit", (req, res) => {
+  Movie.findByIdAndUpdate(req.params.id, req.body).then(() =>
+    res.redirect(`/movies/${req.params.id}`)
+  );
+});
 module.exports = router;

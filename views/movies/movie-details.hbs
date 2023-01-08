@@ -3,18 +3,18 @@
     <h2>{{title}}</h2>
     <br>
     <a href="/movies">Go back to all movie s</a>
-    <h2>{{genre}}</h2>
-    <h2>{{plot}}</h2>
+    <h2>Genre: {{genre}}</h2>
+    <h2>Plot: {{plot}}</h2>
     <div>
         <ul>
 
             {{#each cast}}
 <div>
-            <li>{{this.name}}</li>
+            <li>Actor name: {{this.name}}</li>
             <br>
-                        <li>{{this.occupation}}</li>
+                        <li>Occupation: {{this.occupation}}</li>
                         <br>
-                                    <li>{{this.catchPhrase}}</li>
+                                    <li>Catch phrase: {{this.catchPhrase}}</li>
                                     <br>
                                     </div>
             {{/each}}
