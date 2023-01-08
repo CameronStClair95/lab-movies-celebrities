@@ -42,9 +42,20 @@ router.get("/movies/:id/edit", (req, res) => {
     .then((movie) => res.render("movies/edit-movie", movie));
 });
 
-router.post("/movies/:id/edit", (req, res) => {
-  Movie.findByIdAndUpdate(req.params.id, req.body).then(() =>
-    res.redirect(`/movies/${req.params.id}`)
-  );
+router.post('/movies/:id', (req, res) => {
+  const updatedMovie = {
+    title: req.body.title,
+    genre: req.body.genre,
+    plot: req.body.plot,
+    cast: req.body.cast,
+  };
+  Movie.findByIdAndUpdate(req.params.id, updatedMovie, { new: true })
+    .then(() => {
+      return res.redirect(`/movies/${req.params.id}`);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 });
+
 module.exports = router;

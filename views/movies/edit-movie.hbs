@@ -1,5 +1,5 @@
 <h2>Edit Movie</h2>
-<form action="/movies/{{:id}}/edit" method="POST">
+<form action="/movies/{{_id}}/edit" method="POST">
     <div>
         <label for="" class="form-label">Title </label> <br>
         <input type="text" name="title" value="{{title}}">
@@ -12,18 +12,18 @@
         <label for="" class="form-label">Plot </label> <br>
         <input type="text" name="plot" value="{{plot}}"> </input>
     </div>
-        <div>
+    <div>
         <label for="" class="form-label">cast </label> <br>
         <select type="text" name="cast" id="cast" multiple>
             {{#each cast}}
             <option value="{{_id}}">{{this.name}}</option>
             {{/each}}
-         </select>
+        </select>
     </div>
     <div>
 
-    <button type="submit">Save changes</button>
+        <button type="submit">Save changes</button>
 
-        
+
     </div>
 </form>
