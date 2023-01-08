@@ -19,5 +19,8 @@
             </ul>
         </div>
     </div>
+    <form action="/movies/{{_id}}/delete" method="POST">
+        <button type="submit"> Delete this Movie</button>
+    </form>
     {{/each}}
 </div>
