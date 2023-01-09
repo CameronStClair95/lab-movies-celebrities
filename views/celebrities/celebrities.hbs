@@ -1,15 +1,20 @@
-<a href="./">Go Back</a>
-<a href="/celebrities/create" > Create Celebrity</a>
-<br>
-
-<h1>All of our celebrities</h1>
-<br>
-
-
-{{#each result}}
-<div>
-    <h2>{{name}}</h2>
-    <h2>{{occupation}}</h2>
-    <h2>{{catchPhrase}}</h2>
+<div class="container">
+    <a href="./" class="btn btn-secondary">Go Back</a>
+    <a href="/celebrities/create" class="btn btn-primary">Create Celebrity</a>
+    <br>
+    <h1>All of our celebrities</h1>
+    <br>
+    <div class="row">
+        {{#each result}}
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">{{name}}</h2>
+                    <h3 class="card-subtitle mb-2 text-muted">{{occupation}}</h3>
+                    <p class="card-text">{{catchPhrase}}</p>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
 </div>
-{{/each}}
