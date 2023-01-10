@@ -1,15 +1,19 @@
 <a href="/movies">Go Back</a>
 <br><br>
-<h2>Movie Details></h2> 
+<h2>Movie Details</h2> 
+<br>
 <div>
     <h2>{{title}}</h2>
     <br>
-    <a href="/movies">Go back to all movie s</a>
+    <a href="/movies">Go back to all movies</a>
+    <br>
+    <br>
     <h2>Genre: {{genre}}</h2>
+    <br>
     <h2>Plot: {{plot}}</h2>
+    <br>
     <div>
         <ul>
-
             {{#each cast}}
 <div>
             <li>Actor name: {{this.name}}</li>
@@ -20,9 +24,6 @@
                                     <br>
                                     </div>
             {{/each}}
-
-
         </ul>
-
     </div>
 </div>
