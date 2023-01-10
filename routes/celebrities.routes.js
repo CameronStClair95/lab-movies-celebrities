@@ -55,6 +55,20 @@ router.get("/celebrities", (req, res) => {
       // and pass the result of the "Celebrity.find()" query to the template as a local variable named "result"
     );
   });
+
+  router.get("/celebrity/:id/bio",  (req, res) => {
+    Celebrity.findById(req.params.id)
+    .then(result =>
+        res.render("celebrities/celebrity-details", result))
+  })
+
+  router.post("/celebrity/:id/delete", (req, res) => {
+    Celebrity.findByIdAndDelete(req.params.id)
+    .then(() => res.redirect("/celebrities"))
+    .catch((error) => res.redirect("/celebrities"));
+});
+
+
   
 
 module.exports = router;

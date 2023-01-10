@@ -12,9 +12,15 @@
                     <h2 class="card-title">{{name}}</h2>
                     <h3 class="card-subtitle mb-2 text-muted">{{occupation}}</h3>
                     <p class="card-text">{{catchPhrase}}</p>
+                    <a href="/celebrity/{{_id}}/bio"> Go to Bio</a>
+                    <form action="/celebrity/{{_id}}/delete" method="POST">
+<button type="submit"> Delete this celebrity for ever </button>
+
+                    </form>
                 </div>
             </div>
         </div>
         {{/each}}
+        
     </div>
 
