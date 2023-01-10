@@ -1,5 +1,10 @@
 const router = require("express").Router();
+// Importing the Router class from the Express.js library 
+// and instantiating an object of the Router class to handle routing
+
 const Celebrity = require("../models/Celebrity.model");
+// Importing the Celebrity model that was created earlier using Mongoose
+
 
 router.get("/celebrities/create", (req, res) => {
     // When a GET request is made to the "/celebrities/create" endpoint, this function is executed.
@@ -10,13 +15,6 @@ router.get("/celebrities/create", (req, res) => {
     // this template is used to create a new celebrity
   });
   
-
-// router.post("/celebrities/create", (req, res) => {
-//   Celebrity.create(req.body)
-//     .then(() => res.redirect("/celebrities"))
-//     .catch((error) => res.render("celebrities/create"));
-// });
-
 router.post("/celebrities/create", (req, res) => {
     // When a POST request is made to the "/celebrities/create" endpoint, this function is executed.
     // The function takes in two parameters: "req" (short for request) and "res" (short for response)

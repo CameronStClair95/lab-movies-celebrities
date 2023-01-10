@@ -1,6 +1,14 @@
 const router = require("express").Router();
+// Importing the Router class from the Express.js library 
+// and instantiating an object of the Router class to handle routing
+
 const Movie = require("../models/Movie.model");
+// Importing the Movie model that was created earlier using mongoose
+
+
 const Celebrity = require("../models/Celebrity.model");
+// Importing the Celebrity model that was created earlier using mongoose
+
 
 router.get("/movies/create", (req, res) => {
     // When a GET request is made to the "/movies/create" endpoint, this function is executed.
