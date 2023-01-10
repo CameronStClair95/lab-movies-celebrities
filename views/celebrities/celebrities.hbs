@@ -1,26 +1,24 @@
-
-    <a href="./" class="btn btn-secondary">Go Back</a>
-    <a href="/celebrities/create" class="btn btn-primary">Create Celebrity</a>
-    <br>
-    <h1>All of our celebrities</h1>
-    <br>
-    <div class="row">
-        {{#each result}}
-        <div class="col-md-4 mb-3">
-            <div class="card">
-                <div class="card-body">
-                    <h2 class="card-title">{{name}}</h2>
-                    <h3 class="card-subtitle mb-2 text-muted">{{occupation}}</h3>
-                    <p class="card-text">{{catchPhrase}}</p>
-                    <a href="/celebrity/{{_id}}/bio"> Go to Bio</a>
-                    <form action="/celebrity/{{_id}}/delete" method="POST">
-<button type="submit"> Delete this celebrity for ever </button>
-
-                    </form>
-                </div>
+<a href="./" class="btn btn-secondary">Go Back</a>
+<a href="/celebrities/create" class="btn btn-primary">Create Celebrity</a>
+<br>
+<h1>All of our celebrities</h1>
+<br>
+<div class="row">
+    {{#each result}}
+    <div class="col-md-4 mb-3">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">{{name}}</h2>
+                <h3 class="card-subtitle mb-2 text-muted">{{occupation}}</h3>
+                <p class="card-text">{{catchPhrase}}</p>
+                <a href="/celebrity/{{_id}}/bio"> Go to Bio</a> <br>
+                <a href="/celebrity/{{_id}}/edit"> Edit Celebrity Bio</a>
+                <form action="/celebrity/{{_id}}/delete" method="POST">
+                    <button type="submit" class="btn btn-danger"> Delete this celebrity for ever </button>
+                </form>
             </div>
         </div>
-        {{/each}}
-        
     </div>
+    {{/each}}
 
+</div>

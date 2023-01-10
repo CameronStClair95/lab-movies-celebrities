@@ -68,6 +68,16 @@ router.get("/celebrities", (req, res) => {
     .catch((error) => res.redirect("/celebrities"));
 });
 
+// Shengwei's solution
+/* router.get("/celebrity/:id/edit", (req,res)=>{
+  Celebrity.findById(req.params.id)
+  .then(result => res.render("celebrities/edit-celebrity", result))
+})
+
+router.post("/celebrity/:id/edit", (req,res)=>{
+  Celebrity.findByIdAndUpdate(req.params.id, req.body)
+  .then(result=> res.redirect("/celebrities"))
+}) */
 
   
 
