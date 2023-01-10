@@ -14,7 +14,7 @@ router.get("/movies/create", (req, res) => {
     // When a GET request is made to the "/movies/create" endpoint, this function is executed.
     // The function takes in two parameters: "req" (short for request) and "res" (short for response).
   
-    Celebrity.find().then((result) => res.render("movies/new-movie", { result }));
+    Celebrity.find().then(result => res.render("movies/new-movie", { result }));
     // Inside the function, it runs a method called "find()" on the "Celebrity" model (it is assumed that "Celebrity" is a model created by Mongoose)
     // The find() method retrieves all the documents from a specific collection.
     // The result of the query is passed to a callback function, which is specified in the .then() method
@@ -120,20 +120,28 @@ router.post("/movies/:id/delete", (req, res) => {
       .catch((error) => res.redirect("/movies"));
   });
 
+
   router.get("/movies/:id/edit", (req, res) => {
     // When a GET request is made to the "/movies/:id/edit" endpoint, this function is executed.
     // The function takes in two parameters: "req" (short for request) and "res" (short for response).
     // The ":id" part of the endpoint is a path parameter, which can be accessed through "req.params.id"
-  
     Movie.findById(req.params.id)
-      // Inside the function, it runs a method called "findById()" on the "Movie" model 
-      // (it is assumed that "Movie" is a model created by Mongoose)
-      // The findById() method retrieves a specific document by its unique _id field.
-      // The _id that is passed as a parameter is taken from the path param `req.params.id`
+      .then((movie) => {
+        Celebrity.find().then((celebrities) => {
+          res.render("movies/edit-movie", {
+            movie: movie,
+            celebrities: celebrities,
+          });
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    // Inside the function, it runs a method called "findById()" on the "Movie" model 
+    // (it is assumed that "Movie" is a model created by Mongoose)
+    // The findById() method retrieves a specific document by its unique _id field.
+    // The _id that is passed as a parameter is taken from the path param `req.params.id`
   
-    .populate("cast")
-    .then((movie) => res.render("movies/edit-movie", movie))
-    // Inside the callback function, it uses the "res.render" method to render the "movies/edit-movie" template
     // and pass the result of the "Movie.findById()" query to the template as a local variable named "movie"
 });
 
