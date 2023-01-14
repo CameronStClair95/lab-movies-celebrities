@@ -6,21 +6,21 @@
 <br>
 <br>
 
-<form action="/movies/{{_id}}/edit" method="POST">
+<form action="/movies/{{movie._id}}/edit" method="POST">
     <div>
         <label for="" class="form-label">Title </label> <br>
-        <input type="text" name="title" value="{{title}}">
+        <input type="text" name="title" value="{{movie.title}}">
     </div>
     <div>
         <br>
 
         <label for="" class="form-label">Genre </label> <br>
-        <input type="text" name="genre" value="{{genre}}">
+        <input type="text" name="genre" value="{{movie.genre}}">
     </div>
     <br>
     <div>
         <label for="" class="form-label">Plot </label> <br>
-        <input type="text" name="plot" value="{{plot}}"> </input>
+        <input type="text" name="plot" value="{{movie.plot}}"> </input>
     </div>
     <div>
         <br>
